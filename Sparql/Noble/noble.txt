@@ -1,0 +1,7 @@
+#Noble Prizes
+SELECT ?winner ?winnerLabel
+WHERE {
+  ?winner wdt:P166 [wdt:P361 wd:Q7191];
+          wdt:P19 wd:Q1799.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}

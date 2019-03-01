@@ -1,0 +1,9 @@
+#People 
+SELECT DISTINCT ?person ?personLabel
+WHERE {
+  ?person wdt:P19/wdt:P17* wd:Q36;
+          wdt:P20 [p:P2044/psn:P2044/wikibase:quantityAmount ?aboveSeaLvl].
+  FILTER(?aboveSeaLvl > 8000)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}
+

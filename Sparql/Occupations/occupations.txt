@@ -1,0 +1,10 @@
+#Occupations
+SELECT ?occupationLabel (COUNT(?person) AS ?cardinality)
+WHERE {
+  ?person wdt:P735 wd:Q20087914;
+          wdt:P106 ?occupation.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}
+GROUP BY ?occupation ?occupationLabel
+ORDER BY DESC(?cardinality)
+LIMIT 10

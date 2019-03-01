@@ -1,0 +1,14 @@
+#Old people
+SELECT ?placeLabel (COUNT(?oldPerson) AS ?count)
+WHERE {
+  ?oldPerson wdt:P27 wd:Q36;
+             wdt:P19 ?place;
+             wdt:P569 ?birth;
+             wdt:P570 ?death.
+  BIND(year(?death)-year(?birth) as ?age)
+  FILTER(?age > 100)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}
+GROUP BY ?placeLabel ?count
+HAVING(?count > 1)
+ORDER BY DESC(?count)

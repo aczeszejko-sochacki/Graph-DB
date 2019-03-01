@@ -1,0 +1,10 @@
+#Named things
+SELECT ?thing ?thingLabel ?nameLabel ?surnameLabel
+WHERE {
+  ?thing wdt:P138 ?president.
+  ?president wdt:P39 wd:Q1054799;
+             wdt:P735 ?name;
+             wdt:P734 ?surname.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+}
+
