@@ -1,0 +1,4 @@
+MATCH (trump {name: "realdonaldtrump "}),
+(clinton {name: "hillaryclinton "}),
+path = shortestpath((trump)-[*]-(clinton))
+RETURN path
